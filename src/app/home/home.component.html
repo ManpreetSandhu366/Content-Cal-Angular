@@ -1,0 +1,41 @@
+<div class="container d-flex">
+    <div class="row align-self-center w-100">
+        <div class="col-10 mx-auto">
+            <div class="jumbotron">
+                <div class="bs-example">
+                    <div>
+                        <h1 *ngIf="!contents?.length && categories">Use the following form to add items.</h1>
+                    </div>
+                    <div>
+                        <h1 *ngIf="!categories">The server side application is not running.</h1>
+                    </div>
+                    <div class="list-group" *ngFor="let content of contents">
+                        <span href="#" class="list-group-item list-group-item-action active">
+                            {{content.categoryName}}
+                            <span class="pull-right">{{content.total | currency}}</span>
+                        </span>
+                        <span class="list-group-item list-group-item-action" *ngFor="let item of content.items">
+                            <span class="text-primary">{{item.displayName}}</span>
+                            <span class="pull-right pointer">
+                                <span>{{item.value | currency}}</span>
+                                <i class="fa fa-trash pointer" (click)="removeItem(item.id)"></i>
+                            </span>
+                        </span>
+                    </div>
+                    <form ngNativeValidate class="form-inline" (ngSubmit)="addItem()">
+                        <input required class="form-control col-3" id="itemTxt" name="itemName" [(ngModel)]="itemName"
+                            type="text" placeholder="Item Name">
+                        <input required class="form-control col-3" id="itemTxt" name="itemValue" [(ngModel)]="itemValue"
+                            type="number" placeholder="Item Value">
+                        <select required id="inputState" class="form-control col-3" name="itemCategory"
+                            [(ngModel)]="itemCategory">
+                            <option *ngFor="let category of categories" value={{category.id}}>{{category.name}}
+                            </option>
+                        </select>
+                        <button type="submit" class="btn btn-primary col-3">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

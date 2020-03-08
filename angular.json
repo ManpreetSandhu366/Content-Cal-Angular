@@ -28,9 +28,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.less",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/toastr/build/toastr.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/toastr/build/toastr.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +126,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "content-calculator-angular"
 }
