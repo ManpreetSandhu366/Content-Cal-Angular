@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { TOASTR_TOKEN } from 'src/services/toastr.service';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HomeLocallyComponent } from './homeLocally/homeLocally.component';
 
 const toastr: IToastr = window['toastr'];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    HomeLocallyComponent
   ],
   imports: [
     FormsModule,
